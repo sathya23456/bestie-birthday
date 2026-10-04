@@ -1,0 +1,60 @@
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{
+  font-family:Georgia,"Times New Roman",serif;color:#fff;
+  background:radial-gradient(circle at 50% 18%,#3a162d 0,#160b16 48%,#070509 100%);
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(circle at 20% 20%,rgba(255,75,157,.18),transparent 28%),
+             radial-gradient(circle at 80% 70%,rgba(255,0,100,.13),transparent 30%);
+}
+.screen{
+  position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
+  padding:25px;opacity:0;visibility:hidden;transform:translateX(60px);transition:.7s ease;z-index:5;
+}
+.screen.active{opacity:1;visibility:visible;transform:translateX(0)}
+.card,.final-card{
+  width:min(520px,94vw);text-align:center;padding:28px 22px;
+  border:1px solid rgba(255,150,205,.2);border-radius:28px;
+  background:rgba(20,8,19,.62);box-shadow:0 0 55px rgba(255,44,142,.12);
+  backdrop-filter:blur(10px);
+}
+.eyebrow{text-transform:uppercase;letter-spacing:2px;font:600 11px Arial,sans-serif;color:#ff9fc9;margin-bottom:10px}
+h1{font-size:clamp(42px,10vw,70px);line-height:.92;margin:0 0 14px;text-shadow:0 0 22px rgba(255,80,165,.35)}
+h1 span{color:#ff75b5}
+p{font-size:16px;line-height:1.65;color:#f3dce8;margin:10px auto 16px}
+.photo{width:min(360px,86vw);margin:18px auto;padding:7px;background:#fff;border-radius:18px;box-shadow:0 0 35px rgba(255,77,164,.25);transform:rotate(-1deg)}
+.photo img{width:100%;max-height:50vh;object-fit:contain;display:block;border-radius:13px}
+.next{border:0;border-radius:999px;padding:13px 22px;background:#ff4e9b;color:#fff;font:bold 14px Arial,sans-serif;cursor:pointer;box-shadow:0 8px 25px rgba(255,78,155,.3)}
+.next:hover{transform:translateY(-2px)}
+.dots{margin-top:15px}.dots i,.dots b{display:inline-block;width:7px;height:7px;border-radius:50%;margin:0 4px;background:#765466}.dots b{background:#ff70b4;box-shadow:0 0 10px #ff70b4}
+.music{position:fixed;right:18px;top:18px;z-index:30;width:42px;height:42px;border-radius:50%;border:1px solid #ff79b9;background:#180b17;color:#ff91c5;font-size:19px;cursor:pointer;box-shadow:0 0 18px rgba(255,65,150,.35)}
+.final{overflow:auto;padding:25px 18px}
+.final-card{width:min(760px,94vw);padding:30px 25px;margin:20px 0;position:relative}
+.cake{font-size:50px}
+.final-card h1{font-size:clamp(40px,9vw,72px);margin-bottom:25px}
+.message{max-width:610px;margin:auto}.message p{font-size:16px;line-height:1.75}.message .special{color:#ff9ecb;font-weight:bold}
+.spark{color:#ff72b4;margin:22px 0;font-size:18px}.final-card small{color:#bfa1b2;font-family:Arial,sans-serif}
+.hearts{position:fixed;inset:0;overflow:hidden;z-index:2;pointer-events:none}
+.heart{position:absolute;bottom:-30px;animation:floatUp linear forwards;text-shadow:0 0 12px currentColor}
+.heart.pink{color:#ff66ae}.heart.black{color:#050505;text-shadow:0 0 8px rgba(255,80,160,.25)}
+@keyframes floatUp{from{transform:translateY(0) rotate(0);opacity:0}15%{opacity:1}to{transform:translateY(-115vh) rotate(360deg);opacity:0}}
+
+.anime-wrap{
+  position:absolute;right:-32px;bottom:-8px;width:185px;height:300px;z-index:1;
+  pointer-events:none;display:flex;align-items:flex-end;justify-content:center;
+  filter:drop-shadow(0 0 16px rgba(255,80,170,.28));
+}
+.anime-girl{width:100%;height:100%;object-fit:contain;object-position:bottom center}
+.final-card>*:not(.anime-wrap){position:relative;z-index:2}
+.final-card .message{position:relative;z-index:3}
+
+@media(max-width:700px){
+  .anime-wrap{right:-22px;bottom:-3px;width:125px;height:205px;opacity:.78}
+  .final-card{padding:26px 17px}
+}
+@media(max-width:500px){
+  .anime-wrap{width:105px;height:175px;right:-8px}
+  .final-card .message{padding-bottom:20px}
+}
